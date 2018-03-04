@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import PosterCard from '../components/PosterCard'
 
 class App extends Component{
   render(){
     return(
       <div>
-        Hello, World!
+        <PosterCard/>
+        <PosterCard/>
+        <PosterCard/>
+        <PosterCard/>
       </div>
     );
   }

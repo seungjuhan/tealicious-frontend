@@ -3,29 +3,25 @@ import PropTypes from 'prop-types';
 import './PosterCard.css';
 
 const PosterCard = ({place, poster, host}) => {
-    return (
-        <div>
-          <div>{ place }<div/>
-          <img><img/>
-          <div>{ host }<div/>
-        <div/>
-    );
+  return (
+    <div>
+      <div className="place">{ place }</div>
+      <img className="poster" src={ poster }></img>
+      <div className="host">{ host }</div>
+    </div>
+  );
 };
 
 PosterCard.propTypes = {
-    number: PropTypes.number,
-    color: PropTypes.string,
-    onIncrement: PropTypes.func,
-    onDecrement: PropTypes.func,
-    onSetColor: PropTypes.func
+  place: PropTypes.string,
+  poster: PropTypes.string,
+  host: PropTypes.string,
 };
 
 PosterCard.defaultProps = {
-    number: 0,
-    color: 'black',
-    onIncrement: () => console.warn('onIncrement not defined'),
-    onDecrement: () => console.warn('onDecrement not defined'),
-    onSetColor: () => console.warn('onSetColor not defined')
+  place: 'Unknown',
+  poster: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180',
+  host: 'Unknown'
 };
 
 export default PosterCard;
