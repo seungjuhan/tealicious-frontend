@@ -5,6 +5,7 @@ import { Map, List } from 'immutable';
 const initialState = Map({
   postercard: List([
     Map({
+      time: '2018.03.05',
       place: '설입역 담쟁이넝쿨',
       poster: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180',
       host: '서울대학교 전기정보공학부 R반'

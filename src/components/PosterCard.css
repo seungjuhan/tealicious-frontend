@@ -1,4 +1,26 @@
+.time {
+  margin-left: 2rem;
+  font-size: 0.8rem;
+}
+
+.place {
+  margin-left: 2rem;
+  font-size: 1rem;
+}
+
+.host {
+  margin-left: 2rem;
+}
+
 .poster {
-  width: 10rem;
-  height: 10rem;
+  width: 100%;
+}
+
+.posterContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem;
+  width: 15rem;
+  height: 15rem;
 }
