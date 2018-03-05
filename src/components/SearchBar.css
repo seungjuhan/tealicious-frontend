@@ -1,0 +1,6 @@
+.SearchBarContainer{
+  display: flex;
+  flex: 1;
+  margin: 1rem;
+  justify-content: flex-end;
+}

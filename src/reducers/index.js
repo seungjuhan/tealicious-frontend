@@ -5,10 +5,25 @@ import { Map, List } from 'immutable';
 const initialState = Map({
   postercard: List([
     Map({
+      place: '설입역 담쟁이넝쿨',
+      poster: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180',
+      host: '서울대학교 전기정보공학부 R반'
+    }),
+    Map({
       place: 'Unknown',
-      poster: '../img/poster-1.jpg',
+      poster: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180',
       host: 'Unknown'
-    })
+    }),
+    Map({
+      place: 'Unknown',
+      poster: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180',
+      host: 'Unknown'
+    }),
+    Map({
+      place: 'Unknown',
+      poster: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180',
+      host: 'Unknown'
+    }),
   ])
 })
 
@@ -21,7 +36,7 @@ const initialState = Map({
 */
 
 function poster(state = initialState, action) {
-  const posters = state.get('postercard');
+  const postercard = state.get('postercard');
 
   switch (action.type) {
     default:

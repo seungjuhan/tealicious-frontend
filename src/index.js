@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './containers/App';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 // Redux 관련 불러오기
 import { createStore } from 'redux'
@@ -13,7 +14,7 @@ const store = createStore(reducers);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <App/>
   </Provider>,
   document.getElementById('root')
 );

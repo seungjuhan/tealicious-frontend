@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
-import PosterCard from '../components/PosterCard'
+import PosterCardContainer from './PosterCardContainer';
+import SearchBar from '../components/SearchBar';
+import NavBar from '../components/NavBar';
+
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class App extends Component{
   render(){
     return(
       <div>
-        <PosterCard/>
-        <PosterCard/>
-        <PosterCard/>
-        <PosterCard/>
+        <NavBar/>
+        <SearchBar/>
+        <PosterCardContainer/>
       </div>
     );
   }
 }
 
-export default App;
+const mapToDispatch = (dispatch) => ({
+
+});
+
+
+export default connect(null, mapToDispatch)(App);
