@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PosterCardContainer from './PosterCardContainer';
+import PosterCardList from '../components/PosterCardList';
 import SearchBar from '../components/SearchBar';
 import NavBar from '../components/NavBar';
 
@@ -12,7 +12,7 @@ class App extends Component{
       <div>
         <NavBar/>
         <SearchBar/>
-        <PosterCardContainer/>
+        <PosterCardList/>
       </div>
     );
   }

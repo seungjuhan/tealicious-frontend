@@ -1,34 +1,44 @@
 import React from 'react';
 import PosterCard from './PosterCard';
 import PropTypes from 'prop-types';
-import { List } from 'immutable';
+import { connect } from 'react-redux';
 
 import './PosterCardList.css';
 
-const PosterCardList = ({postercard}) => {
-  const posterCardList = postercard.map(
-    (postercard, i) => (
-      <PosterCard
-        key={i}
-        index={i}
-        {...postercard.toJS()}
-      />
-    )
-  );
+import { fetchProducts } from '../actions';
 
-  return (
-    <div className="PosterCardList">
-      {posterCardList}
-    </div>
-  );
-};
+class PosterCardList extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(fetchProducts());
+  }
 
-PosterCardList.propTypes = {
-  postercard: PropTypes.instanceOf(List),
-};
+  render() {
+    const { error, loading, products } = this.props;
 
-PosterCardList.defaultProps = {
-  postercard: [],
+    if (error) {
+      return <div>Error! { error.message }</div>;
+    }
+
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+
+    return (
+      <div className="PosterCardList">
+        {products.map(postercard => <PosterCard
+          place={postercard.place}
+          time={postercard.time}
+          host={postercard.hosts[0].single_host}
+          poster={postercard.image[0].single_poster}/>)}
+      </div>
+    );
+  }
 }
 
-export default PosterCardList;
+const mapStateToProps = state => ({
+  products: state.postercard,
+  loading: state.loading,
+  error: state.error
+});
+
+export default connect(mapStateToProps)(PosterCardList);

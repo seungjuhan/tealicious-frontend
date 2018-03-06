@@ -5,12 +5,13 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 // Redux 관련 불러오기
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import reducers from './reducers';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
 // 스토어 생성
-const store = createStore(reducers);
+const store = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>

@@ -4,7 +4,7 @@ import './PosterCard.css';
 
 const PosterCard = ({time, place, poster, host}) => {
   return (
-    <div>
+    <div className="totalContainer">
       <div className="time">{ time }</div>
       <div className="place">{ place }</div>
       <div className="posterContainer">

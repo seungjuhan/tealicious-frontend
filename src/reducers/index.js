@@ -1,32 +1,10 @@
 import * as types from '../actions/ActionTypes';
-import { Map, List } from 'immutable';
 
-// 초기 상태를 정의합니다
-const initialState = Map({
-  postercard: List([
-    Map({
-      time: '2018.03.05',
-      place: '설입역 담쟁이넝쿨',
-      poster: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180',
-      host: '서울대학교 전기정보공학부 R반'
-    }),
-    Map({
-      place: 'Unknown',
-      poster: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180',
-      host: 'Unknown'
-    }),
-    Map({
-      place: 'Unknown',
-      poster: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180',
-      host: 'Unknown'
-    }),
-    Map({
-      place: 'Unknown',
-      poster: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180',
-      host: 'Unknown'
-    }),
-  ])
-})
+const initialState = {
+  postercard: [],
+  loading: true,
+  error: null
+}
 
 /*
     리듀서 함수를 정의합니다. 리듀서는 state 와 action 을 파라미터로 받습니다.
@@ -37,9 +15,26 @@ const initialState = Map({
 */
 
 function poster(state = initialState, action) {
-  const postercard = state.get('postercard');
-
   switch (action.type) {
+    case types.FETCH_PRODUCTS_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+    case types.FETCH_PRODUCTS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        postercard: action.payload.place,
+      };
+    case types.FETCH_PRODUCTS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        postercard: []
+      };
     default:
       return state;
   }
